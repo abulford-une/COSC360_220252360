@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use app\Models\Post;
+use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
