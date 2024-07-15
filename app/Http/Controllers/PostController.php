@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Auth::user()->posts;
-        return view('Posts.index', compact('posts'));
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('Posts.create');
+        return view('posts.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class PostController extends Controller
         ]);
 
         Post::create($request->all());
-        return redirect()->route('Posts.index');
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -48,7 +48,7 @@ class PostController extends Controller
         if(Auth::id() != $post->id) {
             abort(403);
         }
-        return view('Posts.show', compact('post'));
+        return view('posts.show', compact('post'));
     }
 
     /**
