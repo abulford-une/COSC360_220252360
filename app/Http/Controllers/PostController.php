@@ -14,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Auth::user()->posts;
+        return view('Posts.index', compact('posts'));
     }
 
     /**
@@ -22,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('Posts.create');
     }
 
     /**
@@ -30,15 +31,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+
+        Post::create($request->all());
+        return redirect()->route('Posts.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request, Post $post)
     {
-        //
+        if(Auth::id() != $post->id) {
+            abort(403);
+        }
+        return view('Posts.show', compact('post'));
     }
 
     /**
