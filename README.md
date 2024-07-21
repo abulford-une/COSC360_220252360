@@ -1,3 +1,15 @@
+## GitHub Link to Project Code Repository
+
+[COSC360_220252360](https://github.com/abulford-une/COSC360_220252360)
+
+## Approach to the Assignment
+
+The majority of my assignment work was spent following the lectures and tutorials, as there are a great many moving parts involved in laravel development with a lot of potential for things to go wrong.  I set up my git repository from the beginning, and did my best to dilligently commit each step of the assignment.  Once I had a working version of the website up and running with mysql, I split off a dedicated development branch before continuing with the mongodb side of the assignment.
+
+## Challenges Faced
+
+I had a great deal of difficulty getting mongodb correctly working with php, and as of this assignment submission I do not have a fully working mongodb implementation of the site.  Thankfully, my (currently broken) mongodb implementation is still sitting on the dev branch, with the working and tested mysql version remaining on the main branch until I can properly fix and test mongodb (php is refusing to recognise the php_mongodb.dll driver no matter what version combinations of php, mongodb, and apache I use, regardless of how I set up my system path and php.ini variables).
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
