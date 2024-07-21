@@ -45,7 +45,7 @@ class PostController extends Controller
      */
     public function show(Request $request, Post $post)
     {
-        if(Auth::id() != $post->id) {
+        if(Auth::id() != $post->user_id) {
             abort(403);
         }
         return view('posts.show', compact('post'));
