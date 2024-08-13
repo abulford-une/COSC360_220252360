@@ -54,9 +54,13 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, string $id)
     {
-        //
+        $post = Post::find($id);
+        if(Auth::id() != $post->user_id) {
+            abort(403);
+        }
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -64,7 +68,14 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $post = Post::find($id);
+        $request->validate([
+            'id' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+        ]);
+        $post->update($request->all());
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -72,6 +83,8 @@ class PostController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+        return redirect()->route('posts.index');
     }
 }
