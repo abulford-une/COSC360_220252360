@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Author\PostController as AuthorPostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -21,13 +22,13 @@ Route::group(['middleware' => ['auth']], function() {
         'destroy' => 'posts.destroy',
     ]);
     Route::resource('author/posts', AuthorPostController::class)->names([
-        'index' => 'author.index',
-        'create' => 'author.create',
-        'store' => 'author.store',
-        'show' => 'author.show',
-        'edit' => 'author.edit',
-        'update' => 'author.update',
-        'destroy' => 'author.destroy',
+        'index' => 'author.posts.index',
+        'create' => 'author.posts.create',
+        'store' => 'author.posts.store',
+        'show' => 'author.posts.show',
+        'edit' => 'author.posts.edit',
+        'update' => 'author.posts.update',
+        'destroy' => 'author.posts.destroy',
     ]);
     Route::get('/something', [PostController::class, 'something']);
     Route::get('/home', [PostController::class, 'index'])->name('home');
@@ -35,13 +36,22 @@ Route::group(['middleware' => ['auth']], function() {
 
 Route::group(['middleware' => ['auth', 'admid']], function() {
     Route::resource('admin/posts', AdminPostController::class)->names([
-        'index' => 'admin.index',
-        'create' => 'admin.create',
-        'store' => 'admin.store',
-        'show' => 'admin.show',
-        'edit' => 'admin.edit',
-        'update' => 'admin.update',
-        'destroy' => 'admin.destroy',
+        'index' => 'admin.posts.index',
+        'create' => 'admin.posts.create',
+        'store' => 'admin.posts.store',
+        'show' => 'admin.posts.show',
+        'edit' => 'admin.posts.edit',
+        'update' => 'admin.posts.update',
+        'destroy' => 'admin.posts.destroy',
+    ]);
+    Route::resource('admin/users', AdminUserController::class)->names([
+        'index' => 'admin.users.index',
+        'create' => 'admin.users.create',
+        'store' => 'admin.users.store',
+        'show' => 'admin.users.show',
+        'edit' => 'admin.users.edit',
+        'update' => 'admin.users.update',
+        'destroy' => 'admin.users.destroy',
     ]);
 });
 
