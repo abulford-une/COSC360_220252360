@@ -3,6 +3,7 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\DashController as AdminDashController;
 use App\Http\Controllers\Author\PostController as AuthorPostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -52,6 +53,15 @@ Route::group(['middleware' => ['auth', 'admid']], function() {
         'edit' => 'admin.users.edit',
         'update' => 'admin.users.update',
         'destroy' => 'admin.users.destroy',
+    ]);
+    Route::resource('admin/dashboard', AdminDashController::class)->names([
+        'index' => 'admin.dashboard.index',
+        'create' => 'admin.dashboard.create',
+        'store' => 'admin.dashboard.store',
+        'show' => 'admin.dashboard.show',
+        'edit' => 'admin.dashboard.edit',
+        'update' => 'admin.dashboard.update',
+        'destroy' => 'admin.dashboard.destroy',
     ]);
 });
 
