@@ -310,51 +310,56 @@
               @endif
               @if (Route::has('register'))
               @endif
-              @else
-                <ul class="navbar-nav flex-grow-1 pe-3">
+            @else
+              <ul class="navbar-nav flex-grow-1 pe-3">
+                @if (in_array("admin", [Auth::user()->user_role]))
                   <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#">
-                      <svg class="bi"><use xlink:href="#house-fill"/></svg>
+                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+                      <svg class="bi"><use xlink:href="#graph-up"/></svg>
                       Dashboard
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
-                      <svg class="bi"><use xlink:href="#file-earmark"/></svg>
-                      Orders
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
-                      <svg class="bi"><use xlink:href="#cart"/></svg>
-                      Products
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
                       <svg class="bi"><use xlink:href="#people"/></svg>
-                      Customers
+                      User Management
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+                      <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
+                      Post Management
+                    </a>
+                  </li>
+                @endif
+                @if (in_array("author", [Auth::user()->user_role]))
+                  <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
                       <svg class="bi"><use xlink:href="#graph-up"/></svg>
-                      Reports
+                      My Statistics
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" href="#">
-                      <svg class="bi"><use xlink:href="#puzzle"/></svg>
-                      Integrations
+                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+                      <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
+                      My Posts
                     </a>
                   </li>
-
-                </ul>
-                <form class="d-flex mt-3" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+                @endif
+                @if (in_array("user", [Auth::user()->user_role]))
+                  <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+                      <svg class="bi"><use xlink:href="#house-fill"/></svg>
+                      User
+                    </a>
+                  </li>
+                @endif
+              </ul>
             @endguest
+            <form class="d-flex mt-3" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
           </div>
         </div>
       </div>
