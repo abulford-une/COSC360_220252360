@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Admin\DashController as AdminDashController;
 use App\Http\Controllers\Author\PostController as AuthorPostController;
+use App\Http\Controllers\Author\DashController as AuthorDashController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +23,11 @@ Route::group(['middleware' => ['auth']], function() {
         'update' => 'posts.update',
         'destroy' => 'posts.destroy',
     ]);
+    Route::get('/something', [PostController::class, 'something']);
+    Route::get('/home', [PostController::class, 'index'])->name('home');
+});
+
+Route::group(['middleware' => ['auth', 'aumid']], function() {
     Route::resource('author/posts', AuthorPostController::class)->names([
         'index' => 'author.posts.index',
         'create' => 'author.posts.create',
@@ -31,8 +37,15 @@ Route::group(['middleware' => ['auth']], function() {
         'update' => 'author.posts.update',
         'destroy' => 'author.posts.destroy',
     ]);
-    Route::get('/something', [PostController::class, 'something']);
-    Route::get('/home', [PostController::class, 'index'])->name('home');
+    Route::resource('author/dashboard', AuthorDashController::class)->names([
+        'index' => 'author.posts.index',
+        'create' => 'author.posts.create',
+        'store' => 'author.posts.store',
+        'show' => 'author.posts.show',
+        'edit' => 'author.posts.edit',
+        'update' => 'author.posts.update',
+        'destroy' => 'author.posts.destroy',
+    ]);
 });
 
 Route::group(['middleware' => ['auth', 'admid']], function() {

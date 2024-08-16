@@ -209,59 +209,9 @@
   </svg>
 
   <div id="app">
-    <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-      <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-          {{ config('app.name', 'Laravel') }}
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto">
-
-          </ul>
-          <ul class="navbar-nav ms-auto">
-            @guest
-              @if (Route::has('login'))
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                </li>
-              @endif
-
-              @if (Route::has('register'))
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                </li>
-              @endif
-              @else
-                <li class="nav-item dropdown">
-                  <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
-                  </a>
-
-                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                      onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                      @csrf
-                    </form>
-                  </div>
-              </li>
-            @endguest
-          </ul>
-        </div>
-      </div>
-    </nav> -->
-    
     <nav class="navbar bg-body-tertiary" aria-label="220252360_Blog">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{{ url('/') }}">
+        <a class="navbar-brand start-0 ms-3" href="{{ url('/') }}">
           {{ config('app.name', 'Laravel') }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarLight" aria-controls="offcanvasNavbarLight" aria-label="Toggle navigation">
@@ -314,19 +264,25 @@
               <ul class="navbar-nav flex-grow-1 pe-3">
                 @if (in_array("admin", [Auth::user()->user_role]))
                   <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+                    <a class="nav-link d-flex align-items-center gap-2"
+                            aria-current="page"
+                            href="{{ route('admin.dashboard.index') }}">
                       <svg class="bi"><use xlink:href="#graph-up"/></svg>
                       Dashboard
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+                    <a class="nav-link d-flex align-items-center gap-2"
+                            aria-current="page"
+                            href="{{ route('admin.users.index') }}">
                       <svg class="bi"><use xlink:href="#people"/></svg>
                       User Management
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+                    <a class="nav-link d-flex align-items-center gap-2"
+                            aria-current="page"
+                            href="{{ route('admin.posts.index') }}">
                       <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
                       Post Management
                     </a>
@@ -334,13 +290,17 @@
                 @endif
                 @if (in_array("author", [Auth::user()->user_role]))
                   <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+                    <a class="nav-link d-flex align-items-center gap-2"
+                            aria-current="page"
+                            href="{{ route('author.dashboard.index') }}">
                       <svg class="bi"><use xlink:href="#graph-up"/></svg>
                       My Statistics
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+                    <a class="nav-link d-flex align-items-center gap-2"
+                            aria-current="page"
+                            href="{{ route('author.posts.index') }}">
                       <svg class="bi"><use xlink:href="#file-earmark-text"/></svg>
                       My Posts
                     </a>
@@ -348,7 +308,9 @@
                 @endif
                 @if (in_array("user", [Auth::user()->user_role]))
                   <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center gap-2" aria-current="page" href="#">
+                    <a class="nav-link d-flex align-items-center gap-2"
+                            aria-current="page"
+                            href="#">
                       <svg class="bi"><use xlink:href="#house-fill"/></svg>
                       User
                     </a>
@@ -365,7 +327,7 @@
       </div>
     </nav>
 
-    <main class="py-4">
+    <main class="py-4 start-0 ms-3">
         @yield('content')
     </main>
   </div>
