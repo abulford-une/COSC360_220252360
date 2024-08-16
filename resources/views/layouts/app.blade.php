@@ -327,9 +327,20 @@
       </div>
     </nav>
 
-    <main class="py-4 start-0 ms-3">
+    <main class="py-4 start-0 ms-3 me-3">
         @yield('content')
     </main>
+
+    <footer class="footer bottom-0 ms-3 me-3 py-3 my-4 w-auto">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item">
+          <a href="{{ route('home') }}" class="nav-link px-2 text-body-secondary">
+            Home
+          </a>
+        </li>
+      </ul>
+      <p class="text-center text-body-secondary">&copy; 2024 220252360</p>
+    </footer>
   </div>
 </body>
 </html>

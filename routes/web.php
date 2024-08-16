@@ -38,13 +38,13 @@ Route::group(['middleware' => ['auth', 'aumid']], function() {
         'destroy' => 'author.posts.destroy',
     ]);
     Route::resource('author/dashboard', AuthorDashController::class)->names([
-        'index' => 'author.posts.index',
-        'create' => 'author.posts.create',
-        'store' => 'author.posts.store',
-        'show' => 'author.posts.show',
-        'edit' => 'author.posts.edit',
-        'update' => 'author.posts.update',
-        'destroy' => 'author.posts.destroy',
+        'index' => 'author.dashboard.index',
+        'create' => 'author.dashboard.create',
+        'store' => 'author.dashboard.store',
+        'show' => 'author.dashboard.show',
+        'edit' => 'author.dashboard.edit',
+        'update' => 'author.dashboard.update',
+        'destroy' => 'author.dashboard.destroy',
     ]);
 });
 
