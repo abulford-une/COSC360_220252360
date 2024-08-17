@@ -28,14 +28,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $role = 'author';
+        if ($request->has('user_role')) { $role = $request->get('user_role'); }
+        
         Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
         ])->validate();
         User::create([
             'name' => $request->get('name'),
-            'user_role' => 'author',
+            'user_role' => $role,
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
         ]);
@@ -67,8 +69,7 @@ class UserController extends Controller
         $user = User::find($id);
         Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users,except,id'],
         ])->validate();
         $user->update($request->all());
         return redirect()->route('admin.users.index');
@@ -80,6 +81,8 @@ class UserController extends Controller
     public function destroy(string $id)
     {
         $user = User::find($id);
+        $posts = $user->posts;
+        foreach ($posts as $post) { $post->delete(); }
         $user->delete();
         return redirect()->route('admin.users.index');
     }
