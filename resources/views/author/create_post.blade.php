@@ -11,7 +11,7 @@
       </ul>
     </div>
   @endif
-  <form action="{{ route('author.posts.store') }}" method="POST">
+  <form action="{{ route(Auth::user()->user_role.'.posts.store') }}" method="POST">
     @csrf
     <div class="form-group">
       <label for="title">Title</label>

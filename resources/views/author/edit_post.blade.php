@@ -11,7 +11,7 @@
       </ul>
     </div>
   @endif
-  <form action="{{ route('author.posts.update', [$post->id]) }}" method="POST">
+  <form action="{{ route(Auth::user()->user_role.'.posts.update', [$post->id]) }}" method="POST">
     @csrf
     @method('PUT')
     <div class="form-group" style="display:none">
