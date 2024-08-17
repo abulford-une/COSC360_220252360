@@ -37,7 +37,7 @@ class PostController extends Controller
         ]);
 
         Post::create($request->all());
-        return redirect()->route('admin.index_all_posts');
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -69,7 +69,7 @@ class PostController extends Controller
             'content' => 'required',
         ]);
         $post->update($request->all());
-        return redirect()->route('admin.index_all_posts');
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -79,6 +79,6 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->delete();
-        return redirect()->route('admin.index_all_posts');
+        return redirect()->route('admin.posts.index');
     }
 }

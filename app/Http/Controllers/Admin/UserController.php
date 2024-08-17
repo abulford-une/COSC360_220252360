@@ -39,7 +39,7 @@ class UserController extends Controller
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
         ]);
-        return redirect()->route('admin.index_user');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -71,7 +71,7 @@ class UserController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ])->validate();
         $user->update($request->all());
-        return redirect()->route('admin.index_user');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -81,6 +81,6 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        return redirect()->route('admin.index_user');
+        return redirect()->route('admin.users.index');
     }
 }

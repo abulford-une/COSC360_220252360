@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Auth::user()->posts;
-        return view('posts.index', compact('posts'));
+        return view('author.index_post', compact('posts'));
     }
 
     /**
@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('author.create_post');
     }
 
     /**
@@ -37,7 +37,7 @@ class PostController extends Controller
         ]);
 
         Post::create($request->all());
-        return redirect()->route('posts.index');
+        return redirect()->route('author.posts.index');
     }
 
     /**
@@ -48,7 +48,7 @@ class PostController extends Controller
         if(Auth::id() != $post->user_id) {
             abort(403);
         }
-        return view('posts.show', compact('post'));
+        return view('author.show_post', compact('post'));
     }
 
     /**
@@ -60,7 +60,7 @@ class PostController extends Controller
         if(Auth::id() != $post->user_id) {
             abort(403);
         }
-        return view('posts.edit', compact('post'));
+        return view('author.edit_post', compact('post'));
     }
 
     /**
@@ -75,7 +75,7 @@ class PostController extends Controller
             'content' => 'required',
         ]);
         $post->update($request->all());
-        return redirect()->route('posts.index');
+        return redirect()->route('author.posts.index');
     }
 
     /**
@@ -85,6 +85,6 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $post->delete();
-        return redirect()->route('posts.index');
+        return redirect()->route('author.posts.index');
     }
 }
