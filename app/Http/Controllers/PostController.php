@@ -14,8 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Auth::user()->posts;
-        return view('posts.index', compact('posts'));
+        $role = Auth::user()->user_role;
+        return redirect()->route($role.'.posts.index');
     }
 
     /**

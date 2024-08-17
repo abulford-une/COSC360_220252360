@@ -211,7 +211,7 @@
   <div id="app">
     <nav class="navbar bg-body-tertiary" aria-label="220252360_Blog">
       <div class="container-fluid">
-        <a class="navbar-brand start-0 ms-3" href="{{ url('/') }}">
+        <a class="navbar-brand start-0 ms-3" href="{{ url('/home') }}">
           {{ config('app.name', 'Laravel') }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbarLight" aria-controls="offcanvasNavbarLight" aria-label="Toggle navigation">

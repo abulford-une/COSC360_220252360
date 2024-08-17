@@ -23,7 +23,6 @@ Route::group(['middleware' => ['auth']], function() {
         'update' => 'posts.update',
         'destroy' => 'posts.destroy',
     ]);
-    Route::get('/something', [PostController::class, 'something']);
     Route::get('/home', [PostController::class, 'index'])->name('home');
 });
 
