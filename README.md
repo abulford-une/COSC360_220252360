@@ -4,11 +4,17 @@
 
 ## Approach to the Assignment
 
-The majority of my assignment work was spent following the lectures and tutorials, as there are a great many moving parts involved in laravel development with a lot of potential for things to go wrong.  I set up my git repository from the beginning, and did my best to dilligently commit each step of the assignment.  Once I had a working version of the website up and running with mysql, I split off a dedicated development branch before continuing with the mongodb side of the assignment.
+After my feedback from the last assignment (where I had only blindly followed the lectures and tutorial content without making any major modifications to the format myself), I took it upon myself to try and properly learn how each laravel element actually worked and interacted with other elements, eventually gaining a little bit of confidence working with blade views, routes, controllers, models, middleware, and many other parts of the (quite overly complicated) working environment.
+
+I will admit I did struggle for many weeks trying to adequately come up with a "solution" to what, exactly, was being asked of us, as we had absolutely no prior points of reference as to what a proper home-brew middleware setup was supposed to look like, or even how to implement one in the first place.
+
+Thankfully, I started my assignment early (pre-work began on 1 August 2024) and so I could take my time very gradually figuring out exactly what it is I was supposed to do and (more importantly) how to do it without completely breaking the entire system (which I managed to do many, many times).
 
 ## Challenges Faced
 
-I had a great deal of difficulty getting mongodb correctly working with php, and as of this assignment submission I do not have a fully working mongodb implementation of the site.  Thankfully, my (currently broken) mongodb implementation is still sitting on the dev branch, with the working and tested mysql version remaining on the main branch until I can properly fix and test mongodb (php is refusing to recognise the php_mongodb.dll driver no matter what version combinations of php, mongodb, and apache I use, regardless of how I set up my system path and php.ini variables).
+My issues getting mongodb correctly working continued for a good long while, but after my 4th complete uninstall and reinstall of all unit components (everything including node, mongodb compass, composer, npm, git, laravel, and all of the other elements we're using) it suddenly decided to work.  No idea how, no idea why, but happily I was largely able to get every other part of the assignment done without encountering any similar system-breaking issues.
+
+I did find a great deal of challenge attempting to translate all of the information about laravel development I found on stackexchange into actual usable instructions on how certain tasks actually work, but in the end I managed to get it done, and the amount of challenge faced wasn't really any more than any other subject and was manageable.
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
