@@ -12,7 +12,6 @@ class PostController extends Controller
 {
     public function index() {
         $posts = Auth::user()->posts;
-        #$posts = Post::all();
         return response()->json([
             $posts,
             'message' => 'Success'
