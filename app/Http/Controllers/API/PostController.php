@@ -3,13 +3,16 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Post;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
     public function index() {
-        $posts = Post::all();
+        $posts = Auth::user()->posts;
+        #$posts = Post::all();
         return response()->json([
             $posts,
             'message' => 'Success'
@@ -30,6 +33,11 @@ class PostController extends Controller
 
     public function update(Request $request, $id) {
         $post = Post::find($id);
+        $request->validate([
+            'id' => 'required',
+            'title' => 'required',
+            'content' => 'required',
+        ]);
         $post->update($request->all());
         return response()->json([
             'data' => $post,
