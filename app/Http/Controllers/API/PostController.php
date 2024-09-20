@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index() {
         $posts = Auth::user()->posts;
         return response()->json([
-            $posts,
+            'data' => $posts,
             'message' => 'Success'
         ], 200);
     }
