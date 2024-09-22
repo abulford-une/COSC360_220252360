@@ -4,17 +4,21 @@
 
 ## Approach to the Assignment
 
-After my feedback from the last assignment (where I had only blindly followed the lectures and tutorial content without making any major modifications to the format myself), I took it upon myself to try and properly learn how each laravel element actually worked and interacted with other elements, eventually gaining a little bit of confidence working with blade views, routes, controllers, models, middleware, and many other parts of the (quite overly complicated) working environment.
+As I had already implemented (almost) all of the required API endpoints for the backend component of the assignment prior to commencing work on Assignment 02, I felt very confident going-in that this assignment would be a nice, straightforward piece of UX design I could enjoy, taking my time to learn how React with Typescript handles web development differently to PHP with Laravel.
 
-I will admit I did struggle for many weeks trying to adequately come up with a "solution" to what, exactly, was being asked of us, as we had absolutely no prior points of reference as to what a proper home-brew middleware setup was supposed to look like, or even how to implement one in the first place.
+Due to an unexpected issue during development of my final assignment for COSC350, work on Assignment 03 for COSC360 commenced much later than I had initially planned, and I found myself completely unprepared for the total paradigm-shift which was React (and NodeJS as a whole) compared to the other languages we have studied throughout this computer science degree.
 
-Thankfully, I started my assignment early (pre-work began on 1 August 2024) and so I could take my time very gradually figuring out exactly what it is I was supposed to do and (more importantly) how to do it without completely breaking the entire system (which I managed to do many, many times).
+I only had to make minor changes to the backend, including the implementation of middleware to handle all my API routes and one additional route able to return a singular post from a GET request, as-opposed-to an index of the user's posts.
+
+The frontend took a lot more work than I had initially scheduled for, particularly around learning how to correctly code my fetch requests to work with typescript interfaces and typing restrictions.  While I have managed to cobble something resembling a frontend application together, it is by no means my finest work.
 
 ## Challenges Faced
 
-My issues getting mongodb correctly working continued for a good long while, but after my 4th complete uninstall and reinstall of all unit components (everything including node, mongodb compass, composer, npm, git, laravel, and all of the other elements we're using) it suddenly decided to work.  No idea how, no idea why, but happily I was largely able to get every other part of the assignment done without encountering any similar system-breaking issues.
+I faced a great deal more trouble trying to code in React than I had anticipated, particularly with getting my API fetch requests to fire and return correctly.  I spent a great deal of time surfing the internet attempting to decipher why my Postman requests would all succeed, but my (completely identical) fetch requests would return errors or not schedule correctly despite the hooks I had enclosed them with.  Who would have thought I had to literally include the word "bearer " as a part of my authorisation token string?
 
-I did find a great deal of challenge attempting to translate all of the information about laravel development I found on stackexchange into actual usable instructions on how certain tasks actually work, but in the end I managed to get it done, and the amount of challenge faced wasn't really any more than any other subject and was manageable.
+In the end, my own lack of experience with the React platform was my downfall in this assignment, with everything going wrong in one way or the other due to interactions I do not have the available knowledge to handle (even just a single modification to a single line in my app.css CSS file somehow causes an error where my list items now no longer recognise themselves as list items).
+
+Had I allowed myself more time and experimentation learning the ins-and-outs of React development, I may have been successful in creating a proper modular application instead of the bodge-job I have settled on.
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
