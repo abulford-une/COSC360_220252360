@@ -18,6 +18,20 @@ class PostController extends Controller
         ], 200);
     }
 
+    public function show(Request $request, $id) {
+        $post = Post::find($id);
+        if(Auth::id() != $post->user_id) {
+            return response()->json([
+                'data' => 'Authentication error',
+                'message' => 'You are not authorised to access this resource'
+            ], status: 401);
+        }
+        return response()->json([
+            'data' => $post,
+            'message' => 'Success'
+        ], 200);
+    }
+
     public function store(Request $request) {
         $request->validate([
             'title' => 'required',
