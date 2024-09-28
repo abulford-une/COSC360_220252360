@@ -4,7 +4,7 @@ namespace App\Models\Sanctum;
 
 use Laravel\Sanctum\Contracts\HasAbilities;
 use Laravel\Sanctum\PersonalAccessToken as SanctumPersonalAccessToken;
-use MongoDB\Laravel\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model;
 
 class PersonalAccessToken extends Model implements HasAbilities
 {
